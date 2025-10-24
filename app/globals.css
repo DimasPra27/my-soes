@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import "flowbite/src/themes/default";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg-image: url("/gsm-01.png");
 }
 
 @theme inline {
@@ -14,13 +16,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
