@@ -1,9 +1,10 @@
+import { Input } from "@/components/ui/input";
+
 export function Form() {
   return (
     <div className="flex w-full justify-center items-center gap-6 px-6 py-14 md:px-10 md:py-25">
       <section className="bg-emerald-800/70 backdrop-blur-md rounded-xl p-6 pb-0 shadow-lg">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-
           <div className="flex flex-col justify-center">
             <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
               Podjok Soes
@@ -21,13 +22,19 @@ export function Form() {
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
                     Email
                   </label>
-                  <input
+                  {/* <input
                     type="email"
                     name="email"
                     id="email"
                     className="bg-emerald-900/50 border border-emerald-700 text-emerald-50 placeholder-emerald-300 text-sm rounded-lg focus:ring-emerald-400 focus:border-emerald-400 block w-full p-2.5"
                     placeholder="name@company.com"
                     required
+                  /> */}
+                  <Input
+                    type="email"
+                    className=""
+                    placeholder="name@company.com"
+                    id="email"
                   />
                 </div>
 
@@ -35,13 +42,20 @@ export function Form() {
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
                     Phone Number
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     name="phone"
                     id="phoneNumber"
                     className="bg-emerald-900/50 border border-emerald-700 text-emerald-50 placeholder-emerald-300 text-sm rounded-lg focus:ring-emerald-400 focus:border-emerald-400 block w-full p-2.5"
                     placeholder="+62"
                     required
+                  /> */}
+
+                  <Input
+                    type="text"
+                    className=""
+                    placeholder="+62"
+                    id="phoneNumber"
                   />
                 </div>
 
