@@ -25,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={
+          `${geistSans.variable} ${geistMono.variable} antialiased` +
+          "flex w-full justify-center items-center gap-6 px-6 py-14 md:px-10 md:py-25" //TODO CHANGE TO GLOBAL
+        }
       >
         {children}
       </body>
