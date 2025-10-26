@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Podjok Soes 
+
+## Features (Task)
+### Front End 
+- [ ] Form page for users can submit 
+    values form : 
+    - Name
+    - Email
+    - Phone (Optional) 
+    - Message 
+- [ ] Questions page (each user can previous or next question)
+- [ ] Tab (Carousel) User can go specific question with id 
+- [ ] Select gender page with 2 animations for male and female (optional)
+- [ ] Create spinner page for get soes and xp (with random amount of soes)
+- [ ] Redeem gift for change soes to marchandise
+- [ ] Search page for specific character with level, point, mood status by email customer
+- [ ] Review page 
+- [ ] About podjok soes 
+- [ ] Ranking page each customers
