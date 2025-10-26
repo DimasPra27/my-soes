@@ -8,14 +8,15 @@ import {
 
 export function Form() {
   return (
-    <div >
+    <div>
       {/* <section className="bg-emerald-800/70 backdrop-blur-md rounded-xl p-6 pb-0 shadow-lg"> */}
       <Card>
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex flex-col justify-center">
-            <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
+          <div className="flex flex-col justify-center items-center text-center gap-10">
+            {/* <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
               Podjok Soes
-            </h1>
+            </h1> */}
+            <img src="/Logo.png" alt="" className="w-xs h-xs"/>
             <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
               Saya meminta untuk apresiasi customer untuk memberikan kami
               masukan :

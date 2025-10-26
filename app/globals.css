@@ -21,6 +21,12 @@
   }
 }
 
+@font-face {
+  font-family: "mungil";
+  src: url("../public/Mungil-Regular.ttf");
+  font-weight: 100;
+}
+
 body {
   background-image: var(--bg-image);
   background-size: cover;
@@ -28,5 +34,5 @@ body {
   background-position: center top;
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "mungil", Arial, Helvetica, sans-serif;
 }
