@@ -15,11 +15,11 @@ export default function QuestionDetails({
     <>
       <div
         className={cn(
-          "bg-secondary text-foreground w-fit rounded-sm p-3 transition-colors",
+          "bg-secondary text-foreground min-w-10 flex items-center justify-center rounded-sm rounded-sm p-3 transition-colors",
           isActive && "bg-foreground text-background"
         )}
       >
-        <span className="text-black">{number}</span>
+        <span className="text-sm front-medium text-black">{number}</span>
       </div>
       <div className="text-center">
         <p className="mb-2 text-base font-medium">{title}</p>

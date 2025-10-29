@@ -99,16 +99,6 @@ export default function Home() {
         {questions.map(({ number, title, description }) => (
           <TabsContent key={number} value={number.toString()} className="p-6">
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-              {/* <div className="flex flex-col justify-center">
-          <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
-            Podjok Soes
-          </h1>
-          <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
-            Saya meminta untuk apresiasi customer untuk memberikan kami masukan
-            :
-          </p>
-        </div> */}
-
               <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
                 {title}
               </h1>
@@ -123,11 +113,6 @@ export default function Home() {
                   id="email"
                 />
               </div>
-              {/* <CardHeader>Question 1</CardHeader> */}
-              {/* <CardTitle>Ini adalah Title</CardTitle> */}
-              {/* <CardDescription>
-          Bagai mana Persaaan Anda setelah memakan kue soes ini : ?
-        </CardDescription> */}
             </div>
           </TabsContent>
         ))}
