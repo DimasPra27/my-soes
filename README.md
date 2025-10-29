@@ -40,14 +40,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Features (Task)
 ### Front End 
-- [ ] Form page for users can submit 
+- [x] Form page for users can submit 
     values form : 
     - Name
     - Email
     - Phone (Optional) 
     - Message 
-- [ ] Questions page (each user can previous or next question)
-- [ ] Tab (Carousel) User can go specific question with id 
+- [x] Questions page (each user can previous or next question)
+- [x] Tab (Carousel) User can go specific question with id 
 - [ ] Select gender page with 2 animations for male and female (optional)
 - [ ] Create spinner page for get soes and xp (with random amount of soes)
 - [ ] Redeem gift for change soes to marchandise
