@@ -90,7 +90,7 @@ body {
   --background: oklch(0.9551 0 0);
   --foreground: oklch(80% 0.05 145); /* Ganti di sini untuk list tabs */
   --card: oklch(1 0 0);
-  /* --card-foreground: oklch(0 0 0); */
+  --card-foreground: oklch(0 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0 0 0);
