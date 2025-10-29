@@ -38,7 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # Podjok Soes 
 
-## Features (Task)
+## ✨ Features (Task)
 ### Front End 
 - [x] Form page for users can submit 
     values form : 
@@ -52,6 +52,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [ ] Create spinner page for get soes and xp (with random amount of soes)
 - [ ] Redeem gift for change soes to marchandise
 - [ ] Search page for specific character with level, point, mood status by email customer
-- [ ] Review page 
+- [ ] personality review results page 
+- [x] Review page
+- [x] Detail Review Page 
 - [ ] About podjok soes 
 - [ ] Ranking page each customers
+
+### Back End 
