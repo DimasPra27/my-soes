@@ -52,7 +52,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [ ] Create spinner page for get soes and xp (with random amount of soes)
 - [ ] Redeem gift for change soes to marchandise
 - [ ] Search page for specific character with level, point, mood status by email customer
-- [ ] personality review results page 
+- [x] personality review results page 
 - [x] Review page
 - [x] Detail Review Page 
 - [ ] About podjok soes 
