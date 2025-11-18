@@ -6,7 +6,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 
-export function Form() {
+export default function Form() {
   return (
     <div>
       {/* <section className="bg-emerald-800/70 backdrop-blur-md rounded-xl p-6 pb-0 shadow-lg"> */}
