@@ -11,7 +11,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 
-import { Input } from "@/components/ui/input";
+import { CustomSelect } from "@/components/ui/CustomSelect";
 
 const questions = [
   {
@@ -71,9 +71,54 @@ const questions = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(questions[0].number.toString());
+  const [answers, setAnswers] = useState<{ [key: number]: number | null }>({});
+
+  const isTabEnabled = (num: number) => {
+    if (num === 1) return true;
+    return answers[num - 1] !== undefined;
+  };
+
+  const handleAnswer = (num: number, value: number) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [num]: value,
+    }));
+
+    const next = num + 1;
+    if (next <= questions.length) {
+      setTimeout(() => {
+        setActiveTab(next.toString());
+      }, 300);
+    }
+  };
+
+  const handleSubmit = () => {
+    const totalAnswered = Object.keys(answers).length;
+
+    if (totalAnswered !== questions.length) {
+      const unanswered = questions
+        .filter((q) => answers[q.number] === undefined)
+        .map((q) => q.number)
+        .join(", ");
+
+      alert(`Masih ada pertanyaan yang belum dijawab:\nNomor: ${unanswered}`);
+      return;
+    }
+
+    alert("Terima kasih! Semua jawaban sudah lengkap.");
+  };
+
+  const answeredCount = Object.values(answers).filter((v) => v !== null).length;
+  const progress = (answeredCount / questions.length) * 100;
 
   return (
-    <Tabs value={activeTab} onValueChange={setActiveTab}>
+    <Tabs
+      value={activeTab}
+      onValueChange={(val) => {
+        const num = Number(val);
+        if (isTabEnabled(num)) setActiveTab(val);
+      }}
+    >
       <TabsList
         className="grid h-auto w-full gap-4"
         style={{
@@ -84,7 +129,14 @@ export default function Home() {
           <TabsTrigger
             key={number}
             value={number.toString()}
-            className="flex cursor-pointer flex-col items-center justify-start py-2"
+            disabled={!isTabEnabled(number)}
+            className={`flex flex-col items-center py-2
+              ${
+                !isTabEnabled(number)
+                  ? "opacity-30 cursor-not-allowed"
+                  : "cursor-pointer"
+              }
+            `}
           >
             <QuestionDetails
               number={number.toString()}
@@ -94,6 +146,22 @@ export default function Home() {
           </TabsTrigger>
         ))}
       </TabsList>
+
+      {/* Progress Bar */}
+      <div className="w-full px-6 mt-6">
+        <div className="text-white mb-2 text-lg font-semibold drop-shadow-md">
+          Progress: {answeredCount} / {questions.length}
+        </div>
+
+        <div className="w-full bg-emerald-900/40 rounded-full h-4 overflow-hidden border border-emerald-700/40 backdrop-blur-md">
+          <div
+            className="h-full bg-emerald-400 transition-all duration-500"
+            style={{
+              width: `${progress}%`,
+            }}
+          />
+        </div>
+      </div>
 
       <Card>
         {questions.map(({ number, title, description }) => (
@@ -106,12 +174,19 @@ export default function Home() {
                 <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
                   {description}
                 </p>
-                <Input
-                  type="text"
-                  className="h-20"
-                  placeholder="Enakk Banget"
-                  id="email"
+                <CustomSelect
+                  value={answers[number] ?? 0}
+                  onChange={(value) => handleAnswer(number, value)}
                 />
+
+                {number === questions.length && (
+                  <button
+                    onClick={handleSubmit}
+                    className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition-all"
+                  >
+                    Submit Jawaban
+                  </button>
+                )}
               </div>
             </div>
           </TabsContent>
