@@ -6,6 +6,9 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+
+import { StarRating } from "@/components/ui/StartRating";
+
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
@@ -14,6 +17,7 @@ interface FormData {
   name: string;
   email: string;
   phoneNumber: string;
+  rate: number;
 }
 
 interface FormErrors {
@@ -29,6 +33,7 @@ export default function Form() {
     name: "",
     email: "",
     phoneNumber: "",
+    rate: 0,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -109,7 +114,7 @@ export default function Form() {
                     value={form.email}
                     onChange={handleChange}
                   />
-                   {errors.email && (
+                  {errors.email && (
                     <p className="text-red-500 text-sm">{errors.email}</p>
                   )}
                 </div>
@@ -126,7 +131,7 @@ export default function Form() {
                     value={form.phoneNumber}
                     onChange={handleChange}
                   />
-                   {errors.phoneNumber && (
+                  {errors.phoneNumber && (
                     <p className="text-red-500 text-sm">{errors.phoneNumber}</p>
                   )}
                 </div>
@@ -142,6 +147,15 @@ export default function Form() {
                     className="h-20 bg-emerald-900/50 border border-emerald-700 text-emerald-50 placeholder-emerald-300 text-sm rounded-lg focus:ring-emerald-400 focus:border-emerald-400 block w-full p-2.5"
                   ></textarea>
                 </div>
+                <StarRating
+                  value={form.rate}
+                  onChange={(value) =>
+                    setForm({
+                      ...form,
+                      rate: value,
+                    })
+                  }
+                />
                 <button
                   type="submit"
                   className="w-full px-5 py-3 text-base font-semibold text-white rounded-lg bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 focus:ring-4 focus:ring-emerald-300 transition-all"
