@@ -1,3 +1,4 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import {
   CardHeader,
@@ -5,8 +6,61 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+interface FormData {
+  name: string;
+  email: string;
+  phoneNumber: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phoneNumber?: string;
+}
 
 export default function Form() {
+  const router = useRouter();
+
+  const [form, setForm] = useState<FormData>({
+    name: "",
+    email: "",
+    phoneNumber: "",
+  });
+
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const validateForm = () => {
+    const newErrors: FormErrors = {};
+
+    if (!form.name.trim()) newErrors.name = "Name wajib diisi.";
+    if (!form.email.trim()) newErrors.email = "Email wajib diisi.";
+    if (!form.phoneNumber.trim())
+      newErrors.phoneNumber = "Phone Number wajib diisi.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    console.log("Submit berhasil:", form);
+
+    router.push("/questions");
+  };
+
   return (
     <div>
       {/* <section className="bg-emerald-800/70 backdrop-blur-md rounded-xl p-6 pb-0 shadow-lg"> */}
@@ -25,7 +79,7 @@ export default function Form() {
 
           <div>
             <div className="w-full lg:max-w-xl p-8 space-y-8 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30">
-              <form className="space-y-6" action="#">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
                     Name
@@ -34,8 +88,13 @@ export default function Form() {
                     type="text"
                     className=""
                     placeholder="Your Name"
-                    id="email"
+                    id="name"
+                    value={form.name}
+                    onChange={handleChange}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -47,7 +106,12 @@ export default function Form() {
                     className=""
                     placeholder="Your Email"
                     id="email"
+                    value={form.email}
+                    onChange={handleChange}
                   />
+                   {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -59,12 +123,17 @@ export default function Form() {
                     className=""
                     placeholder="+62"
                     id="phoneNumber"
+                    value={form.phoneNumber}
+                    onChange={handleChange}
                   />
+                   {errors.phoneNumber && (
+                    <p className="text-red-500 text-sm">{errors.phoneNumber}</p>
+                  )}
                 </div>
 
                 <div>
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
-                    Kesan Pesan
+                    Impression
                   </label>
                   <textarea
                     name="message"
@@ -77,7 +146,7 @@ export default function Form() {
                   type="submit"
                   className="w-full px-5 py-3 text-base font-semibold text-white rounded-lg bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 focus:ring-4 focus:ring-emerald-300 transition-all"
                 >
-                  Kirim
+                  Next
                 </button>
               </form>
             </div>
