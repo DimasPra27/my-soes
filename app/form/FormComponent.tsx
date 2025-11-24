@@ -16,7 +16,7 @@ export default function Form() {
             {/* <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
               Podjok Soes
             </h1> */}
-            <img src="/Logo.png" alt="" className="w-xs h-xs"/>
+            <img src="/Logo.png" alt="" className="w-xs h-xs" />
             <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
               Saya meminta untuk apresiasi customer untuk memberikan kami
               masukan :
@@ -28,20 +28,24 @@ export default function Form() {
               <form className="space-y-6" action="#">
                 <div>
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
+                    Name
+                  </label>
+                  <Input
+                    type="text"
+                    className=""
+                    placeholder="Your Name"
+                    id="email"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-emerald-100">
                     Email
                   </label>
-                  {/* <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="bg-emerald-900/50 border border-emerald-700 text-emerald-50 placeholder-emerald-300 text-sm rounded-lg focus:ring-emerald-400 focus:border-emerald-400 block w-full p-2.5"
-                    placeholder="name@company.com"
-                    required
-                  /> */}
                   <Input
                     type="email"
                     className=""
-                    placeholder="name@company.com"
+                    placeholder="Your Email"
                     id="email"
                   />
                 </div>
@@ -50,15 +54,6 @@ export default function Form() {
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
                     Phone Number
                   </label>
-                  {/* <input
-                    type="text"
-                    name="phone"
-                    id="phoneNumber"
-                    className="bg-emerald-900/50 border border-emerald-700 text-emerald-50 placeholder-emerald-300 text-sm rounded-lg focus:ring-emerald-400 focus:border-emerald-400 block w-full p-2.5"
-                    placeholder="+62"
-                    required
-                  /> */}
-
                   <Input
                     type="text"
                     className=""
