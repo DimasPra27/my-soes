@@ -1,0 +1,83 @@
+[
+  {
+    "category": "PANDAN",
+    "minCalculation": 5,
+    "maxCalculation": 25,
+    "personalities": [
+      {
+        "title": "Hasil karakter kepribadian dalam bernostalgia",
+        "description": "Kamu yang tenang, kalem, pemikir, penuh pertimbangan, dan cenderung pendiam, ketika bernostalgia lebih seperti merenung. Kamu memperhatikan detail, mencermati makna tiap pengalaman, dan menilai apa yang membuatmu nyaman atau belajar dari masa lalu."
+      },
+      {
+        "title": "Efek nostalgia dalam percintaan",
+        "description": "Kamu penuh pertimbangan dan pendiam, suka menganalisis hubungan, dan ingat momen romantis dengan detail. Bukan tipe dramatis, tapi kamu bisa menenangkan pasangan dan membuat hubungan stabil lewat perhatian kecil dan tenang."
+      },
+      {
+        "title": "Efek nostalgia dalam keluarga",
+        "description": "Kamu tetap perhatian, tapi caramu santai, nggak terlalu ikut campur, dan suka mencari aman. Mengenang keluarga selalu bikin kamu tersenyum pelan, mengingat tawa kecil, kebiasaan kecil, dan kasih sayang yang kadang nggak tampak tapi kerasa. Caramu menyampaikan rasa sayang tidak dengan kata-kata tetapi dengan tindakan."
+      },
+      {
+        "title": "Efek nostalgia dalam pertemanan",
+        "description": "Kamu penyendiri tapi hangat, penuh pertimbangan, dan sabar. Ingat momen bersama teman lebih ke sisi makna dan perasaan mereka. Kamu jadi teman yang bisa jadi pendengar baik dan memberikan kenyamanan lewat kedewasaanmu."
+      },
+      {
+        "title": "Efek nostalgia dalam pekerjaan/akademik",
+        "description": "Kamu diplomatis, penyabar, dan suka analisis. Ingat pengalaman akademik atau kerja, kamu fokus belajar dari situasi, merencanakan langkah selanjutnya dengan tenang, dan menghindari keputusan terburu-buru."
+      }
+    ]
+  },
+  {
+    "category": "KLEPON",
+    "minCalculation": -25,
+    "maxCalculation": -5,
+    "personalities": [
+      {
+        "title": "Hasil karakter kepribadian dalam bernostalgia",
+        "description": "Kamu orang yang selalu pengin ngasih yang terbaik untuk diri sendiri dan orang lain. Saat bernostalgia, kamu ingat banget momen-momen mana yang paling berkesan dan berpengaruh. Kamu tipe ekspresif, lebih mengingat senyuman seseorang dan hal-hal hangat yang bikin orang lain kuat kembali. Kamu merasa kewalahan dengan dunia kadang-kadang, namun ingatan baik membantumu kembali ceria dan semangat. Kamu bukan sekadar perasa, tapi pengingat bahwa kamu pernah bisa dan terus bertahan."
+      },
+      {
+        "title": "Efek nostalgia dalam percintaan",
+        "description": "Kamu tipe yang hidupnya penuh warna, dan nggak mau buat hubungan jadi nggak seru. Kamu ingat hal-hal lucu dan hangat yang bikin hubungan makin intip. Kamu orang yang gampang ngungkapin ingatan berkesan untuk nunjukin perasaan sayang. Kamu ingat momen ketika kalian jatuh cinta, dan berusaha bikin suasana hangat dan penuh cinta. Bersamamu, hubungan nggak cuma bertahan, tapi selalu ada kembang api kecil yang bikin cinta terasa hidup."
+      },
+      {
+        "title": "Efek nostalgia dalam keluarga",
+        "description": "Kamu itu jiwa ceria dalam keluarga. Kalau lagi ingat masa kecil, kamu paling cepet pasang senyum karena banyak tawa bareng keluarga. Kamu ingat hal-hal kocak, kebiasaan ribut kecil yang ujung-ujungnya jadi bahan bercandaan. Kamu hangat, mengutamakan kebersamaan, dan nostalgia sering bikin kamu ingin menghidupkan kembali suasana keluarga yang ceria."
+      },
+      {
+        "title": "Efek nostalgia dalam pertemanan",
+        "description": "Kamu moodbooster di sekelilingmu! Kamu yang paling rame saat nostalgia bareng teman-teman. Kamu gampang akrab, mengingat momen-momen lucu, dan suka jadi penghibur. Kamu berusaha menjaga hubungan tetap hangat dan penuh energi, bikin suasana pertemanan tetap hidup."
+      },
+      {
+        "title": "Efek nostalgia dalam pekerjaan/akademik",
+        "description": "Kamu tipe \"go-go\" langsung ambil peran jadi penggerak. Nostalgia akademik atau kerja buatmu jadi pemicu semangat baru. Kamu ingat prosesmu—mulai dari jatuh, bangkit, lalu berhasil. Kamu bangga sama perjalananmu, dan tiap memori bikin kamu makin yakin kamu bisa lebih baik lagi."
+      }
+    ]
+  },
+  {
+    "category": "ORIGINAL",
+    "minCalculation": -4,
+    "maxCalculation": 4,
+    "personalities": [
+      {
+        "title": "Hasil karakter kepribadian dalam bernostalgia",
+        "description": "Kamu itu gak rumit dan nggak pengen drama; kamu lebih memilih jadi pendengar yang baik di masa lalu. Karena kamu fleksibel dan easy-going, kamu paham mengalami kondisi bahagia maupun sedih saat bernostalgia adalah bagian dari proses. Nostalgia bagimu adalah refleksi yang hangat, bukan drama. Sikap optimis acuh namun memikul satu memori baik adalah kekuatanmu."
+      },
+      {
+        "title": "Efek nostalgia dalam percintaan",
+        "description": "Dalam hal percintaan kamu orang yang hangat dan empatik memandang masa lalu. Kamu nggak melebih-lebihkan, tidak berkesedihan dramatis, dan tidak menganggap hubungan masa lalu sebagai hal yang harus ditangisi. Kamu menghormati kenangan dengan tulus, tanpa menolak masa lalu ataupun terikat olehnya."
+      },
+      {
+        "title": "Efek nostalgia dalam keluarga",
+        "description": "Bagi kamu, keluarga adalah inti nostalgia yang paling kuat. Kamu memperlihatkan stabilitas emosional ketika bernostalgia. Kenangan keluarga memberimu motivasi besar dan dorongan untuk tumbuh. Nostalgia membantumu merasa tenang, seimbang, dan penuh syukur."
+      },
+      {
+        "title": "Efek nostalgia dalam pertemanan",
+        "description": "Kamu easy-going dan humoris. Nostalgia pertemanan bukan hal berat bagimu, tapi hal hangat yang menyenangkan. Kamu menghargai kenangan tanpa baper, dan lebih memilih menyimpan memori baik sebagai pengingat bahwa kamu pernah dikelilingi orang yang tulus dan lucu."
+      },
+      {
+        "title": "Efek nostalgia dalam pekerjaan/akademik",
+        "description": "Dalam dunia kerja dan akademik, nostalgia bagimu membawa rasa bangga. Kamu mengingat masa lalu sebagai bukti kemampuanmu berkembang. Kamu menatap ke belakang bukan untuk merasakan beban, tapi untuk merayakan pertumbuhan."
+      }
+    ]
+  }
+]

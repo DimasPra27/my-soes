@@ -8,9 +8,7 @@ import {
 } from "@/components/ui/card";
 
 import { StarRating } from "@/components/ui/StartRating";
-
 import { useState } from "react";
-
 import { useRouter } from "next/navigation";
 
 interface FormData {
