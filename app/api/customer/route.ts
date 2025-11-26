@@ -1,71 +1,101 @@
-// // =============================
-// //            POST
-// // =============================
-// export async function POST(req: Request) {
-//   try {
-//     const body = await req.json();
+import { NextResponse } from "next/server";
+import fs from "fs";
 
-//     const { name, email, msisdn, comment, rate } = body;
+const filePath = process.cwd() + "/app/api/data/result.json";
 
-//     // ============================
-//     //        VALIDASI INPUT
-//     // ============================
-//     if (!name || typeof name !== "string" || name.trim() === "") {
-//       return NextResponse.json({ error: "Name wajib diisi." }, { status: 400 });
-//     }
+function readData() {
+  if (!fs.existsSync(filePath)) return [];
+  const json = fs.readFileSync(filePath, "utf8");
 
-//     if (!email || !email.includes("@")) {
-//       return NextResponse.json(
-//         { error: "Email tidak valid." },
-//         { status: 400 }
-//       );
-//     }
+  return JSON.parse(json);
+}
 
-//     if (!msisdn || msisdn.length < 8) {
-//       return NextResponse.json(
-//         { error: "MSISDN tidak valid." },
-//         { status: 400 }
-//       );
-//     }
+function saveData(data: any[]) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
 
-//     if (!comment || comment.trim().length < 3) {
-//       return NextResponse.json(
-//         { error: "Comment minimal 3 karakter." },
-//         { status: 400 }
-//       );
-//     }
+// =============================
+//            GET
+// =============================
+export async function GET() {
+  try {
+    console.log("masuk di sini");
+    const questions = readData();
 
-//     if (typeof rate !== "number" || rate < 1 || rate > 5) {
-//       return NextResponse.json(
-//         { error: "Rate harus angka 1–5." },
-//         { status: 400 }
-//       );
-//     }
+    return NextResponse.json(questions, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ error: "Failed to load data" }, { status: 500 });
+  }
+}
 
-//     // ============================
-//     //   Simpan ke JSON (append)
-//     // ============================
-//     const existing = readData();
+// =============================
+//            POST
+// =============================
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
 
-//     const newData = {
-//       id: Date.now(),
-//       name,
-//       email,
-//       msisdn,
-//       comment,
-//       rate,
-//       createdAt: new Date().toISOString(),
-//     };
+    const { name, email, msisdn, comment, rate } = body;
 
-//     existing.push(newData);
+    // ============================
+    //        VALIDASI INPUT
+    // ============================
+    if (!name || typeof name !== "string" || name.trim() === "") {
+      return NextResponse.json({ error: "Name wajib diisi." }, { status: 400 });
+    }
 
-//     saveData(existing);
+    if (!email || !email.includes("@")) {
+      return NextResponse.json(
+        { error: "Email tidak valid." },
+        { status: 400 }
+      );
+    }
 
-//     return NextResponse.json({ success: true, data: newData }, { status: 201 });
-//   } catch (error) {
-//     return NextResponse.json(
-//       { error: "Terjadi kesalahan di server." },
-//       { status: 500 }
-//     );
-//   }
-// }
+    if (!msisdn || msisdn.length < 8) {
+      return NextResponse.json(
+        { error: "MSISDN tidak valid." },
+        { status: 400 }
+      );
+    }
+
+    if (!comment || comment.trim().length < 3) {
+      return NextResponse.json(
+        { error: "Comment minimal 3 karakter." },
+        { status: 400 }
+      );
+    }
+
+    if (typeof rate !== "number" || rate < 1 || rate > 5) {
+      return NextResponse.json(
+        { error: "Rate harus angka 1–5." },
+        { status: 400 }
+      );
+    }
+
+    // ============================
+    //   Simpan ke JSON (append)
+    // ============================
+    const existing = readData();
+
+    const newData = {
+      id: Date.now(),
+      name,
+      email,
+      msisdn,
+      comment,
+      rate,
+      createdAt: new Date().toISOString(),
+    };
+
+    existing.push(newData);
+
+    saveData(existing);
+
+    return NextResponse.json({ success: true, data: newData }, { status: 201 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Terjadi kesalahan di server." },
+      { status: 500 }
+    );
+  }
+}

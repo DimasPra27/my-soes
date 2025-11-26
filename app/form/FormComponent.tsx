@@ -1,4 +1,5 @@
 "use client";
+
 import { Input } from "@/components/ui/input";
 import {
   CardHeader,
@@ -10,12 +11,14 @@ import {
 import { StarRating } from "@/components/ui/StartRating";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { json } from "stream/consumers";
 
 interface FormData {
   name: string;
   email: string;
   phoneNumber: string;
   rate: number;
+  comment: string;
 }
 
 interface FormErrors {
@@ -32,6 +35,7 @@ export default function Form() {
     email: "",
     phoneNumber: "",
     rate: 0,
+    comment: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -60,6 +64,7 @@ export default function Form() {
     if (!validateForm()) return;
 
     console.log("Submit berhasil:", form);
+    localStorage.setItem("myData", JSON.stringify(form));
 
     router.push("/questions");
   };

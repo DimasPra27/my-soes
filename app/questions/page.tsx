@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import QuestionDetails from "./questions-details";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,75 +14,79 @@ import {
 
 import { CustomSelect } from "@/components/ui/CustomSelect";
 
-const questions = [
-  {
-    number: 1,
-    title: "Question 1",
-    description: "Bagaimana perasaan Anda setelah memakan kue soes ini?",
-  },
-  {
-    number: 2,
-    title: "Question 2",
-    description: "Seberapa sering Anda membeli kue soes dari kami?",
-  },
-  {
-    number: 3,
-    title: "Question 3",
-    description:
-      "Apakah Anda akan merekomendasikan kue soes kami kepada orang lain?",
-  },
-  {
-    number: 4,
-    title: "Question 4",
-    description: "Seberapa puas Anda dengan rasa kue soes kami?",
-  },
-  {
-    number: 5,
-    title: "Question 5",
-    description:
-      "Bagaimana penilaian Anda terhadap presentasi/penyajian kue soes?",
-  },
-  {
-    number: 6,
-    title: "Question 6",
-    description: "Apakah harga kue soes sesuai dengan kualitasnya?",
-  },
-  {
-    number: 7,
-    title: "Question 7",
-    description: "Apakah Anda menemukan variasi rasa yang Anda sukai?",
-  },
-  {
-    number: 8,
-    title: "Question 8",
-    description:
-      "Seberapa besar kemungkinan Anda membeli lagi dalam 1 bulan ke depan?",
-  },
-  {
-    number: 9,
-    title: "Question 9",
-    description: "Apakah ada saran untuk perbaikan produk atau layanan kami?",
-  },
-  {
-    number: 10,
-    title: "Question 10",
-    description: "Komentar tambahan (opsional)",
-  },
-];
+interface Question {
+  title: string;
+  number: number;
+  description: string;
+  category: string;
+}
+
+interface Answer {
+  answer: number;
+  category: string;
+}
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(questions[0].number.toString());
-  const [answers, setAnswers] = useState<{ [key: number]: number | null }>({});
+  const router = useRouter();
+
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  const [activeTab, setActiveTab] = useState("1");
+  const [answers, setAnswers] = useState<{
+    [key: number]: Answer | null;
+  }>({});
+
+  async function getQuestions() {
+    try {
+      const questions = await fetch("/api/question", { cache: "no-store" });
+      if (!questions.ok) throw new Error("Failed fetch questions");
+
+      const json = await questions.json();
+      console.log(json);
+
+      setQuestions(json);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function saveCustomer() {
+    const data = localStorage.getItem("myData");
+    const storedData = data ? JSON.parse(data) : null;
+
+    const res = await fetch("/api/customer", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: storedData.name,
+        email: storedData.email,
+        msisdn: storedData.phoneNumber,
+        rate: storedData.rate,
+        comment: storedData.comment,
+      }),
+    });
+  }
+
+  useEffect(() => {
+    getQuestions();
+  }, []);
 
   const isTabEnabled = (num: number) => {
     if (num === 1) return true;
     return answers[num - 1] !== undefined;
   };
 
-  const handleAnswer = (num: number, value: number) => {
+  const handleAnswer = (num: number, value: number, cateogry: string) => {
     setAnswers((prev) => ({
       ...prev,
-      [num]: value,
+      [num]: {
+        answer: value,
+        category: cateogry,
+      },
     }));
 
     const next = num + 1;
@@ -105,7 +110,21 @@ export default function Home() {
       return;
     }
 
+    const data = localStorage.getItem("myData");
+    const storedData = data ? JSON.parse(data) : null;
+
+    const updated = {
+      ...storedData,
+      answers,
+    };
+
+    console.log(updated);
+    localStorage.setItem("myData", JSON.stringify(updated));
+
     alert("Terima kasih! Semua jawaban sudah lengkap.");
+    //save customer
+    saveCustomer();
+    const res = router.push("/personality");
   };
 
   const answeredCount = Object.values(answers).filter((v) => v !== null).length;
@@ -164,7 +183,7 @@ export default function Home() {
       </div>
 
       <Card>
-        {questions.map(({ number, title, description }) => (
+        {questions.map(({ number, title, description, category }) => (
           <TabsContent key={number} value={number.toString()} className="p-6">
             <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
               <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
@@ -175,8 +194,8 @@ export default function Home() {
                   {description}
                 </p>
                 <CustomSelect
-                  value={answers[number] ?? 0}
-                  onChange={(value) => handleAnswer(number, value)}
+                  value={answers[number]?.answer ?? 0}
+                  onChange={(value) => handleAnswer(number, value, category)}
                 />
 
                 {number === questions.length && (
