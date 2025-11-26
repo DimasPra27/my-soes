@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import {
@@ -10,7 +12,112 @@ import {
   GraduationCap,
 } from "lucide-react";
 
+import { useState, useEffect } from "react";
+
+interface Personality {
+  category: string;
+  minCalculation: number;
+  maxCalculation: number;
+  personalities: PersonalityDetail[];
+}
+
+interface PersonalityDetail {
+  title: string;
+  description: string;
+}
+
+interface Customer {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  comment?: string;
+  rate: number;
+  answers: {
+    [key: number]: Answer;
+  };
+}
+
+interface Answer {
+  answer: number;
+  category: string;
+}
+
 export default function Personality() {
+  const [customer, setCustomer] = useState<Customer>();
+  const [personalities, setPersonalities] = useState<Personality[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  const [result, setResult] = useState<any[]>([]);
+
+  async function getPersonality() {
+    try {
+      const data = localStorage.getItem("myData");
+      const localCustomer = data ? JSON.parse(data) : null;
+      setCustomer(localCustomer);
+
+      const questions = await fetch("/api/personality", { cache: "no-store" });
+      if (!questions.ok) throw new Error("Failed fetch questions");
+
+      const json = await questions.json();
+      // console.log(json);
+
+      setPersonalities(json);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function calculatePersonality() {
+    if (!customer || !customer.answers) return null;
+
+    // 1. Hitung jumlah skor per kategori
+    const categoryTotals: Record<string, number> = {};
+
+    Object.values(customer.answers ?? {}).forEach((ans) => {
+      if (!categoryTotals[ans.category]) {
+        categoryTotals[ans.category] = 0;
+      }
+      categoryTotals[ans.category] += ans.answer;
+    });
+
+    console.log("Category totals:", categoryTotals);
+
+    // 2. Cari personality yang matching berdasarkan range
+    const result = [];
+
+    // for (const cat of Object.keys(categoryTotals)) {
+    const total = categoryTotals["PANDAN"] - categoryTotals["KLEPON"];
+
+    const match = personalities.find(
+      (p) => total >= p.minCalculation && total <= p.maxCalculation
+    );
+
+    if (match) {
+      result.push({
+        category: match.category,
+        total,
+        personalities: match.personalities,
+      });
+    }
+    // }
+
+    return result;
+  }
+
+  useEffect(() => {
+    getPersonality();
+  }, []);
+
+  useEffect(() => {
+    if (customer && personalities.length > 0) {
+      const r = calculatePersonality();
+      setResult(r ?? []);
+    }
+  }, [customer, personalities]);
+
   return (
     <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-2xl w-full items-center mx-auto">
       {/* Header Text */}

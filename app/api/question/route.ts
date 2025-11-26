@@ -25,6 +25,7 @@ function saveData(data: any[]) {
 // =============================
 export async function GET() {
   try {
+    console.log("masuk di sini")
     const questions = readData();
 
     return NextResponse.json(questions, { status: 200 });
