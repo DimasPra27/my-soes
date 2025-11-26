@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 
-const filePath = process.cwd() + "/app/api/data/personality.json";
+const filePath = process.cwd() + "/public/data/personality.json";
 
 function readData() {
   if (!fs.existsSync(filePath)) return [];
