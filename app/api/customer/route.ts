@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 
-const filePath = process.cwd() + "/app/api/data/result.json";
+const filePath = process.cwd() + "/public/api/data/result.json";
 
 function readData() {
   if (!fs.existsSync(filePath)) return [];

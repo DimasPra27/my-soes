@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const filePath = process.cwd() + "/app/api/data/question.json";
+const filePath = process.cwd() + "/public/data/question.json";
 
 // interface Question {
 //   name: string;
