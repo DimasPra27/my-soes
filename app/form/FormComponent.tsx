@@ -1,16 +1,9 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import {
-  CardHeader,
-  Card,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 import { StarRating } from "@/components/ui/StartRating";
-
 import { useState } from "react";
-
 import { useRouter } from "next/navigation";
 
 interface FormData {
@@ -68,22 +61,22 @@ export default function Form() {
 
   return (
     <div>
-      {/* <section className="bg-emerald-800/70 backdrop-blur-md rounded-xl p-6 pb-0 shadow-lg"> */}
-      <Card>
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex flex-col justify-center items-center text-center gap-10">
-            {/* <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
-              Podjok Soes
-            </h1> */}
-            <img src="/Logo.png" alt="" className="w-xs h-xs" />
+      <Card className="w-full max-w-screen-xl mx-auto h-fit bg-emerald-900/30 backdrop-blur-xl p-4 rounded-3xl">
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 sm:gap-10 lg:gap-20 py-6 sm:py-10 lg:py-0">
+          <div className="flex flex-col gap-5 items-center text-center flex-1 justify-center mt-4 sm:mt-6 lg:mt-0 min-h-[auto] lg:min-h-[45vh]">
+            <img
+              src="/Logo.png"
+              alt=""
+              className="w-32 h-auto sm:w-40 mx-auto"
+            />
             <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
               Saya meminta untuk apresiasi customer untuk memberikan kami
               masukan :
             </p>
           </div>
 
-          <div>
-            <div className="w-full lg:max-w-xl p-8 space-y-8 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30">
+          <div className="w-full max-w-md shrink-0">
+            <div className="w-full max-w-md p-4 sm:p-6 space-y-6 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30 ">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-emerald-100">
@@ -98,7 +91,7 @@ export default function Form() {
                     onChange={handleChange}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm">{errors.name}</p>
+                    <p className="text-green-500 text-sm">{errors.name}</p>
                   )}
                 </div>
 
@@ -115,7 +108,7 @@ export default function Form() {
                     onChange={handleChange}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email}</p>
+                    <p className="text-green-500 text-sm">{errors.email}</p>
                   )}
                 </div>
 
@@ -126,13 +119,15 @@ export default function Form() {
                   <Input
                     type="text"
                     className=""
-                    placeholder="+62"
+                    placeholder="+081xxxxxxxx"
                     id="phoneNumber"
                     value={form.phoneNumber}
                     onChange={handleChange}
                   />
                   {errors.phoneNumber && (
-                    <p className="text-red-500 text-sm">{errors.phoneNumber}</p>
+                    <p className="text-green-500 text-sm">
+                      {errors.phoneNumber}
+                    </p>
                   )}
                 </div>
 
@@ -167,7 +162,6 @@ export default function Form() {
           </div>
         </div>
       </Card>
-      {/* </section> */}
     </div>
   );
 }
