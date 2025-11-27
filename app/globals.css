@@ -88,12 +88,12 @@ body {
     0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.09),
     0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.13);
   --background: oklch(0.9551 0 0);
-  --foreground: oklch(80% 0.05 145); /* Ganti di sini untuk list tabs */
+  /* --foreground: oklch(80% 0.05 145); Ganti di sini untuk list tabs */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
+  /* --card-foreground: oklch(0 0 0); */
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0 0 0);
+  /* --primary: oklch(0 0 0); */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.8945 0 0);
   --secondary-foreground: oklch(0 0 0);
@@ -102,7 +102,7 @@ body {
   --accent: oklch(0.5976 0.173 254.38);
   --accent-foreground: oklch(0.909 0.0457 250.36);
   --skeleton: oklch(0.97 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
+  /* --destructive: oklch(0.577 0.245 27.325); */
   --border: oklch(0.9188 0.0071 268.54);
   /* --input: oklch(0.6667 0.02 268.99); */
   --ring: oklch(0.708 0 0);
