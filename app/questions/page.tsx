@@ -4,13 +4,6 @@ import { useState } from "react";
 import QuestionDetails from "./questions-details";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-
 import { CustomSelect } from "@/components/ui/CustomSelect";
 
 const questions = [
@@ -84,12 +77,12 @@ export default function Home() {
       [num]: value,
     }));
 
-    const next = num + 1;
-    if (next <= questions.length) {
-      setTimeout(() => {
-        setActiveTab(next.toString());
-      }, 300);
-    }
+    // const next = num + 1;
+    // if (next <= questions.length) {
+    //   setTimeout(() => {
+    //     setActiveTab(next.toString());
+    //   }, 300);
+    // }
   };
 
   const handleSubmit = () => {
@@ -108,6 +101,22 @@ export default function Home() {
     alert("Terima kasih! Semua jawaban sudah lengkap.");
   };
 
+  const goToPrev = () => {
+    const currentNum = Number(activeTab);
+    if (currentNum > 1) {
+      setActiveTab((currentNum - 1).toString());
+    }
+
+    // handleAnswer(currentNum, answers[currentNum] ?? 0);
+  };
+
+  const goToNext = () => {
+    const currentNum = Number(activeTab);
+    if (currentNum < questions.length) {
+      setActiveTab((currentNum + 1).toString());
+    }
+  };
+
   const answeredCount = Object.values(answers).filter((v) => v !== null).length;
   const progress = (answeredCount / questions.length) * 100;
 
@@ -119,7 +128,7 @@ export default function Home() {
         if (isTabEnabled(num)) setActiveTab(val);
       }}
     >
-      <TabsList
+      {/* <TabsList
         className="grid h-auto w-full gap-4"
         style={{
           gridTemplateColumns: `repeat(${questions.length}, minmax(0, 1fr))`,
@@ -145,10 +154,10 @@ export default function Home() {
             />
           </TabsTrigger>
         ))}
-      </TabsList>
+      </TabsList> */}
 
       {/* Progress Bar */}
-      <div className="w-full px-6 mt-6">
+      <div className="w-full px-6 max-w-screen-xl mx-auto mb-6">
         <div className="text-white mb-2 text-lg font-semibold drop-shadow-md">
           Progress: {answeredCount} / {questions.length}
         </div>
@@ -163,35 +172,58 @@ export default function Home() {
         </div>
       </div>
 
-      <Card>
-        {questions.map(({ number, title, description }) => (
-          <TabsContent key={number} value={number.toString()} className="p-6">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-              <h1 className="mb-4 text-5xl font-extrabold tracking-tight leading-none text-white drop-shadow-md">
-                {title}
-              </h1>
-              <div className="w-full lg:max-w-xl p-8 space-y-8 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30">
-                <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
-                  {description}
-                </p>
-                <CustomSelect
-                  value={answers[number] ?? 0}
-                  onChange={(value) => handleAnswer(number, value)}
-                />
-
-                {number === questions.length && (
+      {/* <Card className="w-full max-w-screen-xl mx-auto h-fit bg-emerald-900/30 backdrop-blur-xl p-4 rounded-3xl"> */}
+      {questions.map(({ number, title, description }) => (
+        <TabsContent key={number} value={number.toString()} className="p-0">
+          <div className="flex flex-col items-center justify-center lg:justify-between gap-6 sm:gap-10 py-6 sm:py-10 lg:py-0">
+            <div className="w-full lg:max-w-xl p-4 space-y-8 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30">
+              <div className="flex items-center justify-between mt-2">
+                <button
+                  onClick={goToPrev}
+                  disabled={number === 1}
+                  className={`flex items-center gap-2 px-3 font-semibold transition-all ${
+                    number === 1
+                      ? "text-emerald-700/50 cursor-not-allowed"
+                      : "hover:bg-emerald-600 hover:rounded-xl text-white cursor-pointer"
+                  }`}
+                >
+                  <span>←</span> Prev
+                </button>
+                {answers[number] !== undefined && (
                   <button
-                    onClick={handleSubmit}
-                    className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition-all"
+                    onClick={
+                      // number === questions.length ? handleSubmit : goToNext
+                      goToNext
+                    }
+                    className="flex items-center gap-2 px-3 hover:bg-emerald-500 hover:rounded-xl text-white font-semibold transition-all cursor-pointer"
                   >
-                    Submit Jawaban
+                    {number === questions.length ? " " : "Next"}{" "}
+                    {number !== questions.length && <span>→</span>}
                   </button>
                 )}
               </div>
+
+              <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
+                {description}
+              </p>
+              <CustomSelect
+                value={answers[number] ?? 0}
+                onChange={(value) => handleAnswer(number, value)}
+              />
+
+              {number === questions.length && (
+                <button
+                  onClick={handleSubmit}
+                  className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition-all"
+                >
+                  Submit Jawaban
+                </button>
+              )}
             </div>
-          </TabsContent>
-        ))}
-      </Card>
+          </div>
+        </TabsContent>
+      ))}
+      {/* </Card> */}
     </Tabs>
   );
 }
