@@ -3,6 +3,8 @@
     "category": "PANDAN",
     "minCalculation": 5,
     "maxCalculation": 25,
+    "mainImgCharacter": "personality/Main-Pandan.png",
+    "subImgCharacter": "personality/Sub-Pandan.png",
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",
@@ -30,6 +32,8 @@
     "category": "KLEPON",
     "minCalculation": -25,
     "maxCalculation": -5,
+    "mainImgCharacter": "personality/Main-Klepon.png",
+    "subImgCharacter": "personality/Sub-Klepon.png",
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",
@@ -57,6 +61,8 @@
     "category": "ORIGINAL",
     "minCalculation": -4,
     "maxCalculation": 4,
+    "mainImgCharacter": "personality/Main-Original.png",
+    "subImgCharacter": "personality/Sub-Original.png",
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",

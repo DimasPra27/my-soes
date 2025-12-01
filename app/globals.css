@@ -58,7 +58,7 @@ body {
   /* --color-input: var(--input); */
   --color-border: var(--border);
   --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
+  /* --color-accent-foreground: var(--accent-foreground); */
   --color-accent: var(--accent);
   --color-skeleton: var(--skeleton);
   --color-muted-foreground: var(--muted-foreground);
