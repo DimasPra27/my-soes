@@ -180,6 +180,7 @@ body.bg-form {
 
 body.bg-questions {
   --bg-image: url("/background/Background_questions.png");
+  background-color: #ffc4e578;
 }
 
 body.bg-review {

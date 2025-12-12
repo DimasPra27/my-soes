@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 import QuestionDetails from "./questions-details";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "@/components/ui/card";
 
 import { CustomSelect } from "@/components/ui/CustomSelect";
 
@@ -176,14 +177,14 @@ export default function Home() {
       </TabsList> */}
 
       {/* Progress Bar */}
-      <div className="w-full px-6 max-w-screen-xl mx-auto mb-6">
+      <div className="w-full px-6 max-w-screen-xl mx-auto lg:mb-6">
         <div className="text-white mb-2 text-lg font-semibold drop-shadow-md">
           Progress: {answeredCount} / {questions.length}
         </div>
 
-        <div className="w-full bg-emerald-900/40 rounded-full h-4 overflow-hidden border border-emerald-700/40 backdrop-blur-md">
+        <div className="w-full bg-[#E3FFE6] rounded-full h-4 overflow-hidden border border-emerald-700/40 backdrop-blur-md">
           <div
-            className="h-full bg-emerald-400 transition-all duration-500"
+            className="h-full bg-[#0C7A3F] transition-all duration-500"
             style={{
               width: `${progress}%`,
             }}
@@ -194,9 +195,15 @@ export default function Home() {
       {/* <Card className="w-full max-w-screen-xl mx-auto h-fit bg-emerald-900/30 backdrop-blur-xl p-4 rounded-3xl"> */}
       {questions.map(({ number, title, description, category }) => (
         <TabsContent key={number} value={number.toString()} className="p-0">
-          <div className="flex flex-col items-center justify-center lg:justify-between gap-6 sm:gap-10 py-6 sm:py-10 lg:py-0">
-            <div className="w-full lg:max-w-xl p-4 space-y-8 bg-emerald-950/60 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/30">
-              <div className="flex items-center justify-between mt-2">
+          <div className="flex flex-col items-center justify-center lg:justify-between gap-2 sm:gap-2 py-6 sm:py-10 lg:py-0">
+            <Card>
+              <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
+                {description}
+              </p>
+            </Card>
+
+            <div className="w-full lg:max-w-xl p-4 space-y-8  ">
+              {/* <div className="flex items-center justify-between mt-2">
                 <button
                   onClick={goToPrev}
                   disabled={number === 1}
@@ -220,24 +227,38 @@ export default function Home() {
                     {number !== questions.length && <span>→</span>}
                   </button>
                 )}
-              </div>
+              </div> */}
 
-              <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
+              {/* <p className="mb-6 text-lg font-normal text-emerald-100 lg:text-xl">
                 {description}
-              </p>
+              </p> */}
               <CustomSelect
                 value={answers[number]?.answer ?? 0}
                 onChange={(value) => handleAnswer(number, value, category)}
               />
 
-              {number === questions.length && (
-                <button
-                  onClick={handleSubmit}
-                  className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition-all"
-                >
-                  Submit Jawaban
-                </button>
-              )}
+              <div className="flex justify-center mt-8">
+                {number === questions.length ? (
+                  <button
+                    onClick={handleSubmit}
+                    className="px-8 py-3 bg-[#3D8B4E] hover:bg-[#2d6939] text-white font-bold rounded-lg shadow-md transition-all"
+                  >
+                    Lihat Hasil
+                  </button>
+                ) : (
+                  <button
+                    onClick={goToNext}
+                    disabled={answers[number] === undefined}
+                    className={`px-8 py-3 font-bold rounded-lg shadow-md transition-all ${
+                      answers[number] === undefined
+                        ? "bg-gray-500/50 text-gray-400 cursor-not-allowed"
+                        : "bg-[#3D8B4E] hover:bg-[#2d6939] text-white"
+                    }`}
+                  >
+                    Selanjutnya
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </TabsContent>
