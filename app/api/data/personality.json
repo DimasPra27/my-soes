@@ -5,6 +5,21 @@
     "maxCalculation": 25,
     "mainImgCharacter": "personality/Main-Pandan.png",
     "subImgCharacter": "personality/Sub-Pandan.png",
+    "traits": [
+      "tenang/kalem",
+      "cuek/tidak peduli",
+      "cari aman sendiri",
+      "penyabar",
+      "diplomatis",
+      "kurang inisiatif",
+      "kurang ekspresif",
+      "suka mengalah",
+      "pemalu",
+      "penyendiri",
+      "terlalu santai",
+      "sekali ngomong nusuk"
+    ],
+    "types": ["plegmatis", "melankolis"],
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",
@@ -34,6 +49,23 @@
     "maxCalculation": -5,
     "mainImgCharacter": "personality/Main-Klepon.png",
     "subImgCharacter": "personality/Sub-Klepon.png",
+    "traits": [
+      "kompetitif",
+      "karismatik",
+      "si populer",
+      "gak sabaran",
+      "energik",
+      "selalu ingin jadi sorotan",
+      "percaya diri tinggi",
+      "mudah bergaul",
+      "berani",
+      "membara/menggebu",
+      "suka party",
+      "spontan",
+      "ekspresif",
+      "ceplas ceplos"
+    ],
+    "types": ["koleris", "sanguinis"],
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",
@@ -63,6 +95,23 @@
     "maxCalculation": 4,
     "mainImgCharacter": "personality/Main-Original.png",
     "subImgCharacter": "personality/Sub-Original.png",
+    "traits": [
+      "fleksibel",
+      "mudah berbaur di segala kelompok",
+      "ambivert",
+      "hangat/ceria",
+      "dapat bersosialisasi sekaligus penyendiri",
+      "empati yang tinggi",
+      "netral",
+      "pendengar yang baik",
+      "pandai memahami kondisi",
+      "optimis energik",
+      "easy going",
+      "gak mau ribet orangnya",
+      "humoris",
+      "ambisius"
+    ],
+    "types": ["sanguinis", "plegmatis"],
     "personalities": [
       {
         "title": "Hasil karakter kepribadian dalam bernostalgia",

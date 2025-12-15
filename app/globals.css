@@ -42,7 +42,7 @@ body {
   font-family: "mungil", Arial, Helvetica, sans-serif;
 
   /* Mobile kecil - fokus penuh ke kanan */
-  background-position: 10% bottom;
+  background-position: 6%  calc(100% - 390px); 
 }
 
 /* Mobile landscape / tablet kecil */
