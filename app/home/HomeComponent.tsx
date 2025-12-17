@@ -47,14 +47,13 @@ export default function HomeComponent() {
                 dalam Ceritamu
               </h1>
               <p className="mb-8 leading-relaxed">
-                Nostalgi dapat mengagkat ingatan terhadap pojok tertentu dimana
-                pernah berjumpa. Ada yang seperti dirilis, ada yang menjadi
-                kehangatan bagi jiwa di kesempatan kehidupan kini, dan
-                meninggalkan nilai luhur yang masih dilakukan.
+                Bukan ujian, anggap saja ini sebagai pojok teduh untuk duduk
+                sebentar. Kita akan menengok ke dalam, meraba kembali
+                kenangan-kenangan itu, dan menemukan 'rasa' unik yang
+                membentukmu.
                 <br />
                 <br />
-                Pojok Soei memiliki empat peranan yang dapat menemanimu dalam
-                mengenai momen serta diri sendiri dengan rasa tamu.
+                Tidak ada jawaban benar atau salah, yang ada hanya ceritamu.
               </p>
               <button
                 onClick={handleMulaiTelusuri}
@@ -88,7 +87,7 @@ export default function HomeComponent() {
                 <div className="relative w-full aspect-[3/4]">
                   <Image
                     src="/home/Image_Home_1.png"
-                    alt="Nostalgia Pojok Soei"
+                    alt="Nostalgia Pojok Soes"
                     fill
                     className="object-cover rounded-2xl"
                   />
@@ -104,16 +103,22 @@ export default function HomeComponent() {
                 Sesi yang Mengharukan.
               </h2>
               <p className="text-green-900 mb-6 leading-relaxed">
-                Projek kami bertujuan agar pojok yang terinti akan yang telah
-                oleh pertemuan menggandap cerita manis itu merenakan dan
-                mengangkatkan perasaan yang telah hilang menjadi menanti lagi
-                yang senang, tenang, atau memukau dari semua orang.
+                “Podjok Soes” terinspirasi dari pojok, ruang kecil yang sering
+                luput dari perhatian, tetapi justru menjadi tempat kita
+                menemukan kenyamanan. Dalam sebuah ruangan, pojok adalah titik
+                yang tenang, familiar, dan membuat kita merasa ‘pulang’.
               </p>
               <p className="text-green-900 mb-6 leading-relaxed">
-                Projek kami yang mengagti dasar Pojok Soei mengajudikan menteri
-                anggota yang hangat lewat certi, projek soei, kami lagi dalam
-                produk kami jalan mengikat certi dapat mengumpulakan manis
-                karangan memuntukan realisme terhadap penggantian masa beru.
+                Filosofi inilah yang menjadi dasar Podjok Soes: menghadirkan
+                momen singgah yang hangat lewat satu gigitan soes. Kami ingin
+                setiap produk kami menjadi “pojok” kecil dalam keseharian
+                pelanggan, tempat untuk bisa berhenti sejenak dari rutinitas,
+                menikmati rasa yang lembut, dan merasakan kembali kehangatan
+                masa kecil.
+              </p>
+              <p className="text-green-900 mb-6 leading-relaxed">
+                Di Podjok Soes, kami percaya bahwa kebahagiaan tidak selalu
+                besar.Karena manisnya, <b>Semanis Masa Kecil</b>.
               </p>
               <div className="flex items-center gap-4">
                 {/* <div className="bg-white rounded-full p-1">
@@ -143,7 +148,7 @@ export default function HomeComponent() {
           <div className="text-center mb-12">
             <Image
               src="/soes-logo.png"
-              alt="Pojok Soei Logo"
+              alt="Pojok Soes Logo"
               width={60}
               height={60}
               className="mx-auto mb-4"
@@ -213,12 +218,12 @@ export default function HomeComponent() {
           {/* Product Description */}
           <div className="bg-green-700 text-white p-8 rounded-3xl text-center">
             <p className="leading-relaxed max-w-4xl mx-auto">
-              Pojok Soei dibuat dari bahan-bahan tradisional indonesia; pandan
-              segar yang memberi aroma lembut, daun pandan resortas, gula merah
-              asusri dengan detail lsmpis dan ramah sayat, serta kelapa pilihan
-              yang menghadirkan rasa tropis yang asap dan creamy, Perpaduan
-              ketiga lsmsun charakter rasa yang serasi, bersepaduan, dan
-              menggundang pada culuman ahari serta si anyaman halaman.
+              Podjok Soes dibuat dari bahan-bahan tradisional Indonesia: pandan
+              segar yang memberi aroma lembut khas jajanan rumahan, gula merah
+              murni dengan manis hangat dan aroma karamel alami, serta kelapa
+              pilihan yang menghadirkan rasa tropis ringan dan creamy. Perpaduan
+              ketiganya menciptakan karakter rasa yang akrab, menenangkan, dan
+              mengingatkan pada camilan masa kecil di kampung halaman.
             </p>
           </div>
         </div>
