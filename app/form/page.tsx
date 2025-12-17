@@ -64,7 +64,7 @@ export default function Form() {
   return (
     <>
       {/* Desktop Layout */}
-      <div className="hidden lg:flex justify-end items-start pt-8 pr-8">
+      <div className="hidden lg:flex justify-end items-start pt-8 pr-70">
         <Card className="w-full max-w-md lg:px-12 lg:py-8 p-4 rounded-3xl">
           <div className="flex flex-col items-center justify-center gap-5">
             <div className="flex flex-col gap-3 items-center text-center">
