@@ -4,7 +4,19 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
+import { useRouter } from "next/navigation";
+
 export default function HomeComponent() {
+  const router = useRouter();
+
+  const handleMulaiTelusuri = () => {
+    router.push("/form");
+  };
+
+  const handleIkutiIG = () => {
+    window.open("https://www.instagram.com/podjoksoes/", "_blank");
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -44,7 +56,10 @@ export default function HomeComponent() {
                 Pojok Soei memiliki empat peranan yang dapat menemanimu dalam
                 mengenai momen serta diri sendiri dengan rasa tamu.
               </p>
-              <button className="bg-pink-300 text-green-900 px-8 py-3 rounded-full font-bold hover:bg-pink-400">
+              <button
+                onClick={handleMulaiTelusuri}
+                className="bg-pink-300 text-green-900 px-8 py-3 rounded-full font-bold hover:bg-pink-400"
+              >
                 Mulai Telusuri Rasamu
               </button>
             </div>
@@ -110,8 +125,11 @@ export default function HomeComponent() {
                     className="rounded-full"
                   />
                 </div> */}
-                <button className="bg-green-700 text-white px-8 py-3 rounded-full font-bold hover:bg-green-800">
-                  Ikuti perjalanan pojok Soei
+                <button
+                  onClick={handleIkutiIG}
+                  className="bg-green-700 text-white px-8 py-3 rounded-full font-bold hover:bg-green-800"
+                >
+                  Ikuti perjalanan pojok Soes
                 </button>
               </div>
             </div>

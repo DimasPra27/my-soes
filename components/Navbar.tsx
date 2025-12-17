@@ -80,7 +80,7 @@ export default function Navbar() {
           href="/"
           className="hidden lg:block font-bold text-white text-3xl hover:opacity-80 transition"
         >
-          podjok SOES
+          podjok soes
         </Link>
 
         <div className="hidden lg:flex items-center gap-10">
