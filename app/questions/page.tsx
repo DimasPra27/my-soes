@@ -179,7 +179,7 @@ export default function Home() {
       {/* Progress Bar */}
       <div className="w-full px-6 max-w-screen-xl mx-auto lg:mb-6">
         <div className="text-white mb-2 text-lg font-semibold drop-shadow-md">
-          Progress: {answeredCount} / {questions.length}
+          Progres: {answeredCount} / {questions.length}
         </div>
 
         <div className="w-full bg-[#E3FFE6] rounded-full h-4 overflow-hidden border border-emerald-700/40 backdrop-blur-md">

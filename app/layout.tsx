@@ -39,7 +39,7 @@ export default function RootLayout({
         <div className="flex w-full justify-center items-center px-4 py-6 md:px-10 md:py-8">
           <Navbar />
         </div>
-        <div className="flex w-full justify-center items-center gap-6 px-4 py-14 md:px-10 md:py-35">
+        <div className="">
           <LayoutWrapper>{children}</LayoutWrapper>
         </div>
       </body>

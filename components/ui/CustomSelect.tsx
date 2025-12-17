@@ -202,7 +202,7 @@ export function CustomSelect({ value = null, onChange }: CustomSelectProps) {
             }
           `}
         >
-          ← Prev
+          ← Geser
         </button>
 
         {/* Card Stack Container */}
@@ -268,7 +268,7 @@ export function CustomSelect({ value = null, onChange }: CustomSelectProps) {
                   <div className="absolute bottom-0 left-0 right-0 p-6 pointer-events-none">
                     {selected === opt.value && (
                       <div className="mt-2 inline-block px-3 py-1 bg-emerald-500 rounded-full text-white text-sm font-semibold">
-                        ✓ Selected
+                        ✓ Terpilih
                       </div>
                     )}
                   </div>
@@ -291,7 +291,7 @@ export function CustomSelect({ value = null, onChange }: CustomSelectProps) {
             }
           `}
         >
-          Next →
+          Geser →
         </button>
       </div>
 
@@ -327,7 +327,7 @@ export function CustomSelect({ value = null, onChange }: CustomSelectProps) {
             }
           `}
         >
-          ← Prev
+          ← Geser
         </button>
 
         <button
@@ -342,7 +342,7 @@ export function CustomSelect({ value = null, onChange }: CustomSelectProps) {
             }
           `}
         >
-          Next →
+          Geser →
         </button>
       </div>
     </div>

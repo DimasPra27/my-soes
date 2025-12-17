@@ -42,7 +42,7 @@ body {
   font-family: "mungil", Arial, Helvetica, sans-serif;
 
   /* Mobile kecil - fokus penuh ke kanan */
-  background-position: 6%  calc(100% - 390px); 
+  background-position: 6% calc(100% - 390px);
 }
 
 /* Mobile landscape / tablet kecil */
@@ -173,6 +173,10 @@ body.bg-home {
 }
 
 /* Background untuk setiap page */
+body.bg-home {
+  background-color: #ffffff;
+}
+
 body.bg-form {
   --bg-image: url("/background/Backgorund_form.png");
   background-image: var(--bg-image);

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Form from "./form/FormComponent";
+import HomeTest from "./home/HomeComponent";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       {/* <Card /> */}
       {/* <Features /> */}
-      <Form />
+      <HomeTest />
     </>
   );
 }
