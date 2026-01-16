@@ -353,7 +353,7 @@ export default function Personality() {
                         </h3>
                       </div>
                       <div className="border-4 border-black bg-yellow-50 rounded-lg p-6 mb-4">
-                        <p className="text-black text-base leading-relaxed text-lg">
+                        <p className="text-black text-base text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -364,7 +364,7 @@ export default function Personality() {
                         {renderIcon(idx, p.title)}
                       </div>
                       <div className="border-4 border-black bg-white rounded-lg p-6 mb-4">
-                        <p className="text-black text-base leading-relaxed text-lg">
+                        <p className="text-black text-base text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -515,7 +515,7 @@ export default function Personality() {
                         </h3>
                       </div>
                       <div className="border-2 border-black bg-yellow-50 rounded-lg p-4">
-                        <p className="text-black text-sm leading-relaxed text-lg">
+                        <p className="text-black text-sm text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -526,7 +526,7 @@ export default function Personality() {
                         {renderIcon(idx, p.title)}
                       </div>
                       <div className="border-2 border-black bg-white rounded-lg p-4">
-                        <p className="text-black text-sm leading-relaxed text-lg">
+                        <p className="text-black text-sm text-lg">
                           {p.description}
                         </p>
                       </div>

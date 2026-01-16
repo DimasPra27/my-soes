@@ -46,7 +46,7 @@ export default function HomeComponent() {
                 <br />
                 dalam Ceritamu
               </h1>
-              <p className="mb-8 leading-relaxed text-xl">
+              <p className="mb-8 text-xl">
                 Bukan ujian, anggap saja ini sebagai pojok teduh untuk duduk
                 sebentar. Kita akan menengok ke dalam, meraba kembali
                 kenangan-kenangan itu, dan menemukan 'rasa' unik yang
@@ -102,13 +102,13 @@ export default function HomeComponent() {
                 <br />
                 Sesi yang Mengharukan.
               </h2>
-              <p className="text-green-900 mb-6 leading-relaxed text-xl">
+              <p className="text-green-900 mb-6 text-xl">
                 “Podjok Soes” terinspirasi dari pojok, ruang kecil yang sering
                 luput dari perhatian, tetapi justru menjadi tempat kita
                 menemukan kenyamanan. Dalam sebuah ruangan, pojok adalah titik
                 yang tenang, familiar, dan membuat kita merasa ‘pulang’.
               </p>
-              <p className="text-green-900 mb-6 leading-relaxed text-xl">
+              <p className="text-green-900 mb-6 text-xl">
                 Filosofi inilah yang menjadi dasar Podjok Soes: menghadirkan
                 momen singgah yang hangat lewat satu gigitan soes. Kami ingin
                 setiap produk kami menjadi “pojok” kecil dalam keseharian
@@ -116,7 +116,7 @@ export default function HomeComponent() {
                 menikmati rasa yang lembut, dan merasakan kembali kehangatan
                 masa kecil.
               </p>
-              <p className="text-green-900 mb-6 leading-relaxed text-xl">
+              <p className="text-green-900 mb-6 text-xl">
                 Di Podjok Soes, kami percaya bahwa kebahagiaan tidak selalu
                 besar.Karena manisnya, <b>Semanis Masa Kecil</b>.
               </p>
@@ -219,7 +219,7 @@ export default function HomeComponent() {
 
           {/* Product Description */}
           <div className="bg-green-700 text-white p-8 rounded-3xl text-center">
-            <p className="leading-relaxed max-w-4xl mx-auto text-xl">
+            <p className="max-w-4xl mx-auto text-xl">
               Podjok Soes dibuat dari bahan-bahan tradisional Indonesia: pandan
               segar yang memberi aroma lembut khas jajanan rumahan, gula merah
               murni dengan manis hangat dan aroma karamel alami, serta kelapa

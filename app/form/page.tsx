@@ -177,7 +177,7 @@ export default function Form() {
             >
               Selamat Datang!
             </h1>
-            <p className="text-sm text-white leading-relaxed">
+            <p className="text-sm text-white">
               Temukan kenagan manis bersama kami! Isi formulir singkat ini dan
               bagikan pengalaman Anda menikmati kue soes kami
             </p>
