@@ -199,7 +199,7 @@ export default function Personality() {
   const handleRetry = () => {
     localStorage.removeItem("myData");
     localStorage.clear();
-    router.push("/");
+    router.push("/form");
   };
 
   useEffect(() => {
@@ -228,7 +228,7 @@ export default function Personality() {
           <div className="hidden md:grid md:grid-cols-2 md:gap-8">
             {/* Left Column */}
             <div>
-              <p className="text-left text-emerald-700 font-medium mb-4">
+              <p className="text-left text-emerald-700 font-medium mb-4 text-lg">
                 Hi, {customer?.name} <br />
                 Wah ternyata, kamu itu...
               </p>
@@ -311,7 +311,10 @@ export default function Personality() {
                             style={{ width: `${percentage}%` }}
                           ></div>
                         </div>
-                        <span className="text-emerald-700 font-bold w-12 text-right text-base flex-shrink-0">
+                        <span
+                          className="text-emerald-700 font-bold w-12 text-right text-base flex-shrink-0"
+                          style={{ fontFamily: "'pulang'" }}
+                        >
                           {percentage}%
                         </span>
                       </div>
@@ -350,7 +353,7 @@ export default function Personality() {
                         </h3>
                       </div>
                       <div className="border-4 border-black bg-yellow-50 rounded-lg p-6 mb-4">
-                        <p className="text-black text-base leading-relaxed">
+                        <p className="text-black text-base leading-relaxed text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -361,7 +364,7 @@ export default function Personality() {
                         {renderIcon(idx, p.title)}
                       </div>
                       <div className="border-4 border-black bg-white rounded-lg p-6 mb-4">
-                        <p className="text-black text-base leading-relaxed">
+                        <p className="text-black text-base leading-relaxed text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -378,18 +381,18 @@ export default function Personality() {
                   <RefreshCw className="w-5 h-5" />
                   Ulangi Tes
                 </button>
-
+                {/* 
                 <button className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md">
                   <Share2 className="w-5 h-5" />
                   Bagikan
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
 
           {/* Mobile Layout */}
           <div className="md:hidden">
-            <p className="text-center text-emerald-700 font-medium mb-4">
+            <p className="text-center text-emerald-700 font-medium mb-4 text-lg">
               Hi, {customer?.name} <br />
               Wah ternyata, kamu itu...
             </p>
@@ -472,7 +475,10 @@ export default function Personality() {
                           style={{ width: `${percentage}%` }}
                         ></div>
                       </div>
-                      <span className="text-emerald-700 font-bold w-8 text-right text-xs flex-shrink-0">
+                      <span
+                        className="text-emerald-700 font-bold w-8 text-right text-xs flex-shrink-0"
+                        style={{ fontFamily: "'pulang'" }}
+                      >
                         {percentage}%
                       </span>
                     </div>
@@ -509,7 +515,7 @@ export default function Personality() {
                         </h3>
                       </div>
                       <div className="border-2 border-black bg-yellow-50 rounded-lg p-4">
-                        <p className="text-black text-sm leading-relaxed">
+                        <p className="text-black text-sm leading-relaxed text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -520,7 +526,7 @@ export default function Personality() {
                         {renderIcon(idx, p.title)}
                       </div>
                       <div className="border-2 border-black bg-white rounded-lg p-4">
-                        <p className="text-black text-sm leading-relaxed">
+                        <p className="text-black text-sm leading-relaxed text-lg">
                           {p.description}
                         </p>
                       </div>
@@ -539,10 +545,10 @@ export default function Personality() {
                 Ulangi Tes
               </button>
 
-              <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md text-sm">
+              {/* <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md text-sm">
                 <Share2 className="w-4 h-4" />
                 Bagikan
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

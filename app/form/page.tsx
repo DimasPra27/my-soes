@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { StarRating } from "@/components/ui/StartRating";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface FormData {
@@ -21,6 +21,13 @@ interface FormErrors {
 export default function Form() {
   const router = useRouter();
 
+    useEffect(() => {
+      const data = localStorage.getItem("myData");
+      if (data) {
+        router.push("/personality");
+      }
+    }, []);
+
   const [form, setForm] = useState<FormData>({
     name: "",
     phoneNumber: "",
@@ -33,10 +40,20 @@ export default function Form() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm({
-      ...form,
-      [e.target.id]: e.target.value,
-    });
+    const { id, value } = e.target;
+
+    // Hanya izinkan angka dan simbol + di awal
+    if (id === "phoneNumber") {
+      const numericValue = value.replace(/[^0-9+]/g, "");
+      setForm({ ...form, [id]: numericValue });
+    } else {
+      setForm({ ...form, [id]: value });
+    }
+
+    // setForm({
+    //   ...form,
+    //   [e.target.id]: e.target.value,
+    // });
   };
 
   const validateForm = () => {
@@ -56,7 +73,7 @@ export default function Form() {
 
     console.log("Submit berhasil:", form);
     // Using in-memory storage instead of localStorage
-    sessionStorage.setItem("myData", JSON.stringify(form));
+    localStorage.setItem("myData", JSON.stringify(form));
 
     router.push("/questions");
   };
@@ -98,8 +115,9 @@ export default function Form() {
 
                 <div>
                   <Input
-                    type="text"
+                    type="tel"
                     className="bg-[#FFB5DA] placeholder-[#096831] text-sm border-2 border-[#FFB5DA] h-10 focus:ring-2 focus:ring-[#FFB5DA] focus:border-[#FFB5DA] text-[#096831] rounded-3xl"
+                    style={{ fontFamily: "'pulang'" }}
                     placeholder="+081xxxxxxxx"
                     id="phoneNumber"
                     value={form.phoneNumber}
@@ -184,6 +202,7 @@ export default function Form() {
               <Input
                 type="text"
                 className="bg-[#FFB5DA] placeholder-[#096831] text-sm border-0 h-12 focus:ring-2 focus:ring-[#FFB5DA] focus:border-[#FFB5DA] text-[#096831] rounded-2xl w-full"
+                style={{ fontFamily: "'pulang'" }}
                 placeholder="+081xxxxxxxx"
                 id="phoneNumber"
                 value={form.phoneNumber}
